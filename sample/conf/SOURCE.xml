@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<database>
+    <table name="students" systemName="" description="">
+        <column name="phone_number" systemName="" description="" type="VARCHAR" size="45.0" canBeNull="false" identity="false"/>
+        <column name="email" systemName="" description="" type="VARCHAR" size="200.0" canBeNull="false" identity="false"/>
+        <column name="last_name" systemName="" description="" type="VARCHAR" size="45.0" canBeNull="false" identity="false"/>
+        <column name="first_name" systemName="" description="" type="VARCHAR" size="45.0" canBeNull="false" identity="false"/>
+        <column name="student_id" systemName="" description="" type="INTEGER" size="10.0" canBeNull="false" identity="true"/>
+        <primaryKey>student_id</primaryKey>
+        <indexes name="idx_surname" systemName="" description="">
+            <column>last_name</column>
+        </indexes>
+    </table>
+    <table name="classes" systemName="" description="">
+        <column name="class_name" systemName="" description="" type="VARCHAR" size="45.0" canBeNull="false" identity="false"/>
+        <column name="class_id" systemName="" description="" type="INTEGER" size="10.0" canBeNull="false" identity="true"/>
+        <primaryKey>class_id</primaryKey>
+    </table>
+    <table name="class_students" systemName="" description="">
+        <column name="student" systemName="" description="" type="INTEGER" size="10.0" canBeNull="false" identity="false"/>
+        <column name="class" systemName="" description="" type="INTEGER" size="10.0" canBeNull="false" identity="false"/>
+        <primaryKey>class</primaryKey>
+        <primaryKey>student</primaryKey>
+        <foreignKeys>
+            <name>fk_class</name>
+            <column>class</column>
+            <referenceTable>classes</referenceTable>
+            <referenceColumn>class_id</referenceColumn>
+        </foreignKeys>
+        <foreignKeys>
+            <name>fk_student</name>
+            <column>student</column>
+            <referenceTable>students</referenceTable>
+            <referenceColumn>student_id</referenceColumn>
+        </foreignKeys>
+        <indexes name="fk_student_idx" systemName="" description="">
+            <column>student</column>
+        </indexes>
+    </table>
+</database>

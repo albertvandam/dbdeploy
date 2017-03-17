@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<StaticData tableName="classes">
+    <Record>
+        <Column name="class_id">1</Column>
+        <Column name="class_name">Math</Column>
+    </Record>
+    <Record>
+        <Column name="class_id">2</Column>
+        <Column name="class_name">English</Column>
+    </Record>
+    <Record>
+        <Column name="class_id">3</Column>
+        <Column name="class_name">Science</Column>
+    </Record>
+    <Record>
+        <Column name="class_id">4</Column>
+        <Column name="class_name">Biology</Column>
+    </Record>
+</StaticData>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<testConfiguration description="Test suite #1" enabled="false">
+    <TestDefinition identifier="TEST1" description="Test #1" enabled="true">
+        <BeforeTest type="SQL_STATEMENT">
+            <Statement>INSERT INTO SOME_TABLE (COL1, COL2, COL3) VALUES (?, ?, ?)</Statement>
+            <Parameter>1</Parameter>
+            <Parameter>2</Parameter>
+            <Parameter>3</Parameter>
+        </BeforeTest>
+        <Test type="STORED_PROCEDURE">
+            <Statement>CALL SOME_PROC(?, ?, ?)</Statement>
+            <Parameter direction="IN" type="INTEGER">1</Parameter>
+            <Parameter direction="INOUT" type="CHAR">2</Parameter>
+            <Parameter direction="OUT" type="CHAR"/>
+        </Test>
+        <Assertion description="Assertion #1">
+            <Field source="OUT_PARAMETER">1</Field>
+            <Comparator>NOT_EQUAL</Comparator>
+            <ExpectedValue>2</ExpectedValue>
+        </Assertion>
+        <Assertion description="Assertion #2">
+            <Field source="OUT_PARAMETER">2</Field>
+            <Comparator>EQUAL</Comparator>
+            <ExpectedValue>3</ExpectedValue>
+        </Assertion>
+        <Assertion description="Assertion #2">
+            <Field source="RESULT_SET" row="1">COL2</Field>
+            <Comparator>EQUAL</Comparator>
+            <ExpectedValue>3</ExpectedValue>
+        </Assertion>
+        <Assertion description="Assertion #2">
+            <Field source="TOTAL_RECORDS"/>
+            <Comparator>EQUAL</Comparator>
+            <ExpectedValue>1</ExpectedValue>
+        </Assertion>
+    </TestDefinition>
+</testConfiguration>

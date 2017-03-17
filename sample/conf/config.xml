@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration>
+    <datasource identifier="SOURCE" driverType="MYSQL" hostname="127.0.0.1" username="root" password="password" databaseName="dbdeploy_sample" schemaName="dbdeploy_sample"/>
+    <datasource identifier="QA" driverType="DB2_400" hostname="10.10.32.17" username="SAMUSR" password="SAMPWD" databaseName="*SYSBAS" schemaName="DBDEPSMP"/>
+</configuration>
